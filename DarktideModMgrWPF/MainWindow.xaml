@@ -1,0 +1,123 @@
+﻿<Window x:Class="DarktideModMgrWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:adonisUi="clr-namespace:AdonisUI;assembly=AdonisUI"
+        xmlns:adonisControls="clr-namespace:AdonisUI.Controls;assembly=AdonisUI"
+        xmlns:adonisExtensions="clr-namespace:AdonisUI.Extensions;assembly=AdonisUI"
+        xmlns:local="clr-namespace:DarktideModMgrWPF"
+        xmlns:dd="urn:gong-wpf-dragdrop"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="470" Width="800" Visibility="Visible" ResizeMode="NoResize" Loaded="APP_Load" WindowStartupLocation="CenterScreen" >
+    <Window.Style>
+        <Style TargetType="Window">
+            <Setter Property="WindowChrome.WindowChrome">
+                <Setter.Value>
+                    <WindowChrome
+                     CornerRadius="2"
+                     CaptionHeight="30"
+                     GlassFrameThickness="-1"
+                     UseAeroCaptionButtons="True"
+                     NonClientFrameEdges="Left,Bottom,Right"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Style>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <GroupBox x:Name="groupBox" HorizontalAlignment="Center" Height="470" Header=" Darktide MOD Manager Basic" VerticalAlignment="Center" Width="800" Margin="0,0,0,0" BorderBrush="#FFEDEDEC" Background="{x:Null}">
+            <Grid HorizontalAlignment="Left" Height="432" VerticalAlignment="Top" Width="800" Margin="-10,-8,0,0">
+                <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="438" VerticalAlignment="Top" TabStripPlacement="Left" Width="88" BorderThickness="0,0,0,0" Margin="0,-8,0,0">
+                    <TabItem x:Name="Mainpage" Header="" BorderThickness="0,0,0,0" Margin="1,8,1,-8" Visibility="Visible" Height="47">
+                        <Grid Margin="80,-140,-720,5" Height="400" Width="690">
+                            <Label Content="Darktide MOD Manager" HorizontalAlignment="Left" HorizontalContentAlignment="Center" Height="50" Margin="97,24,0,0" VerticalAlignment="Top" Width="540" dd:DragDrop.DropTargetAdornerBrush="Black" FontSize="36" FontWeight="Medium" FontFamily="DengXian" Foreground="#FF7B0F0F"/>
+                            <Label x:Name="authorlabel" Content="Author:" HorizontalAlignment="Left" Margin="522,302,0,0" VerticalAlignment="Top" Height="29" Width="85" FontFamily="DengXian" FontWeight="Normal" FontSize="14" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                            <Label x:Name="authornamelabel" Content="淅淅" HorizontalAlignment="Left" Margin="628,309,0,0" VerticalAlignment="Top" FontWeight="Normal" FontFamily="DengXian" FontSize="14" Width="48"/>
+                            <Label x:Name="specialthankslabel" Content="Special Thanks:" HorizontalAlignment="Left" Margin="495,326,0,0" VerticalAlignment="Top" Width="112" Height="30" FontWeight="Normal" FontFamily="DengXian" FontSize="14" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                            <Label x:Name="whotothankslabel" Content="无名弟" HorizontalAlignment="Left" Margin="628,334,0,0" VerticalAlignment="Top" Width="48" FontFamily="DengXian" FontWeight="Normal" FontSize="14"/>
+                            <Image x:Name="image" HorizontalAlignment="Left" Height="80" Margin="87,10,0,0" VerticalAlignment="Top" Width="82" Source="/Darktide_00001.png"/>
+                            <Label x:Name="versionlabel" Content="v" HorizontalAlignment="Left" Margin="473,73,0,0" VerticalAlignment="Top" Foreground="#FF7B0F0F" FontSize="16" FontWeight="Normal" FontFamily="DengXian"/>
+                            <TextBlock Height="20" Margin="501,356,89,24" FlowDirection="RightToLeft" FontFamily="DengXian" FontSize="14">
+                                <Hyperlink NavigateUri="http://blog.crymc.cn" RequestNavigate="Hyperlink_blog" Cursor="Arrow">
+                                    blog.crymc.cn
+                                </Hyperlink>
+                            </TextBlock>
+                            <TextBlock Height="20" Margin="501,379,89,1" FlowDirection="RightToLeft" FontFamily="DengXian" FontSize="14">
+                                <Hyperlink NavigateUri="https://www.nexusmods.com/warhammer40kdarktide" RequestNavigate="Hyperlink_nexusmods" Cursor="Arrow">
+                                    Download mods
+                                </Hyperlink>
+                            </TextBlock>
+                        </Grid>
+                    </TabItem>
+                    <TabItem x:Name="Other" Height="47" Header=" " BorderThickness="0,0,0,0" Width="86" Margin="2,46,0,-46" Padding="6,2,6,2">
+                        <Grid Margin="80,-140,-720,5" Height="420" Width="700">
+                            <GroupBox x:Name="Backuprestore" Header="GroupBox" Margin="10,10,10,303" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="14" FontWeight="Bold">
+                                <Grid Height="75">
+                                    <ComboBox x:Name ="Backupflieslist" HorizontalAlignment="Left" Margin="10,28,0,0" VerticalAlignment="Top" Width="555" Background="White" FontWeight="Normal" FontSize="12" adonisExtensions:WatermarkExtension.Watermark="Search ..."/>
+                                    <Button x:Name="Restore" Content="" HorizontalAlignment="Left" Margin="585,28,0,0" VerticalAlignment="Top" Width="60" Click="Restore_Click" Background="{x:Null}" FontSize="12" FontWeight="Normal"/>
+                                    <Label x:Name="BackupTitle" Content="" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="555" Height="23" VerticalContentAlignment="Bottom" FontWeight="Normal" FontSize="12"/>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox x:Name="language" Header="GroupBox" Margin="10,130,10,109" Background="{x:Null}" Width="680" FontSize="14" FontWeight="Bold">
+                                <Grid>
+                                    <Label x:Name="languageselecttitle" Content="" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" FontSize="12" FontWeight="Normal" Height="23" Width="409" VerticalContentAlignment="Bottom"/>
+                                    <ComboBox x:Name="languagelist" HorizontalAlignment="Left" Margin="10,28,0,0" VerticalAlignment="Top" Width="555" FontSize="12" FontWeight="Normal" Background="{x:Null}"/>
+                                    <Button x:Name="languageconfirm" Content="" HorizontalAlignment="Left" Margin="585,28,0,0" VerticalAlignment="Top" FontSize="12" FontWeight="Normal" Background="{x:Null}" Width="60" Click="languageconfirm_Click"/>
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </TabItem>
+                    <TabItem x:Name="Mods" Header="" BorderThickness="0,0,0,0" Margin="2,-43,0,43" Visibility="Visible" Height="44" HorizontalAlignment="Left" Width="86" Padding="6,2,6,2">
+                        <Grid Margin="80,-140,-720,5" Height="430" Width="700">
+                            <GroupBox x:Name="RadioGroup" Header="GroupBox" Margin="280,300,0,27" HorizontalAlignment="Left" Width="135" Background="{x:Null}" FontSize="14" FontWeight="Bold" >
+                                <Grid Width="132" Height="50" HorizontalAlignment="Center" Margin="0,-5,0,0">
+                                    <RadioButton x:Name="radioFolder" Content="RadioButton" HorizontalAlignment="Left" Margin="15,0,0,0" VerticalAlignment="Top" IsChecked="True" FontSize="12" FontWeight="Normal"/>
+                                    <RadioButton x:Name="radioTxt" Content="RadioButton" HorizontalAlignment="Left" Margin="15,22,0,0" VerticalAlignment="Top" FontSize="12" FontWeight="Normal"/>
+                                </Grid>
+                            </GroupBox>
+                            <ListView x:Name="listView" HorizontalAlignment="Center" Width="320" Height="290" Margin="-330,10,0,0" VerticalAlignment="Top" d:ItemsSource="{d:SampleData ItemCount=5}" dd:DragDrop.DropHandler="{Binding}" dd:DragDrop.DropTargetAdornerBrush="{DynamicResource PrimaryThemeColor}" dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True" dd:DragDrop.UseDefaultDragAdorner="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" PreviewMouseMove="MoveDete">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn x:Name="LocalMods" Header ="MOD列表" Width="280"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                            <ListView x:Name="listView1" HorizontalAlignment="Center" Width="320" Height="290" Margin="330,10,0,0" VerticalAlignment="Top" d:ItemsSource="{d:SampleData ItemCount=5}" dd:DragDrop.DropHandler="{Binding}" dd:DragDrop.DropTargetAdornerBrush="{DynamicResource PrimaryThemeColor}" dd:DragDrop.IsDragSource="True" dd:DragDrop.IsDropTarget="True" dd:DragDrop.UseDefaultDragAdorner="False" ScrollViewer.HorizontalScrollBarVisibility="Hidden" PreviewMouseMove="MoveDete">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn x:Name="PrepareMods" Header ="MOD列表" Width="280"/>
+                                    </GridView>
+                                </ListView.View>
+                            </ListView>
+                            <GroupBox x:Name="ListGroup" HorizontalAlignment="Left" Height="94" Header="GroupBox" Margin="20,300,0,0" VerticalAlignment="Top" Width="264" Background="{x:Null}" BorderBrush="{x:Null}" FontWeight="Bold" FontSize="14">
+                                <Grid HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="260" Margin="-8,-8,0,0">
+                                    <Button x:Name="buttonAddAll" Content="Button" HorizontalAlignment="Left" Width="120" Height="23" Margin="14,1,0,0" VerticalAlignment="Top" Click="buttonAddAll_Click" MouseMove="MoveDete" FontWeight="Normal" FontSize="12"/>
+                                    <Button x:Name="buttonRemoveAll" Content="Button" HorizontalAlignment="Center" Width="120" Height="23" Margin="127,1,0,0" VerticalAlignment="Top" Click="buttonRemoveAll_Click" Grid.ColumnSpan="2" MouseMove="MoveDete" FontWeight="Normal" FontSize="12"/>
+                                    <Button x:Name="buttonRefresh" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="240" Margin="14,24,0,0" Click="buttonRefresh_Click" FontWeight="Normal" FontSize="12"/>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox x:Name="ModGroup" HorizontalAlignment="Left" Height="94" Header="GroupBox" Margin="404,300,0,0" VerticalAlignment="Top" Width="264" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="14" FontWeight="Bold">
+                                <Grid HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="258" Margin="-8,-8,0,0">
+                                    <Button x:Name="buttonPatchToggle" Content="Button" HorizontalAlignment="Left" Width="120" Height="23" Margin="5,1,0,0" VerticalAlignment="Top" Click="buttonPatchToggle_Click" FontSize="12" FontWeight="Normal"/>
+                                    <Button x:Name="buttonSave" Content="Button" HorizontalAlignment="Left" Width="120" Height="23" Margin="125,1,0,0" VerticalAlignment="Top" Click="buttonSave_Click" FontSize="12" FontWeight="Normal"/>
+                                    <Button x:Name="buttonStart" Content="Button" HorizontalAlignment="Center" Width="240" Height="23" Margin="-8,24,0,0" VerticalAlignment="Top" Click="buttonStart_Click" FontSize="12" FontWeight="Normal"/>
+                                </Grid>
+                            </GroupBox>
+                            <Label x:Name="Savetips" Content=" " HorizontalAlignment="Left" Margin="680,12,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                            <Label x:Name="Statuslabel" Content=" " HorizontalAlignment="Left" Height="23" Margin="20,394,0,0" VerticalAlignment="Top" Width="160" VerticalContentAlignment="Bottom" FontWeight="Normal"/>
+                            <Label x:Name="lastsavelabel" Content="" HorizontalAlignment="Left" Margin="408,394,0,0" VerticalAlignment="Top" Height="23" Width="80" VerticalContentAlignment="Bottom" FontWeight="Normal" HorizontalContentAlignment="Right"/>
+                            <Label x:Name="lastsavelabelc" Content="" HorizontalAlignment="Left" Margin="493,394,0,0" VerticalAlignment="Top" FontWeight="Normal" Height="23" VerticalContentAlignment="Bottom" Width="158"/>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </GroupBox>
+        <Grid HorizontalAlignment="Left" Height="95" Margin="705,-24,0,0" VerticalAlignment="Top" Width="111">
+            <Button x:Name="buttonexit" Content="×" HorizontalAlignment="Left" Height="33" Margin="56,20,0,0" VerticalAlignment="Top" Width="40" FontSize="24" BorderThickness="0,0,0,0" Background="{x:Null}" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" BorderBrush="{x:Null}" Foreground="#FFD81616"/>
+        </Grid>
+    </Grid>
+
+</Window>
